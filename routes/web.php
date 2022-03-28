@@ -15,7 +15,11 @@ use App\Http\Controllers\LinkController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app');
 });
 
 Route::get('/{hash}', [LinkController::class, 'redirect'])->name('short.links');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

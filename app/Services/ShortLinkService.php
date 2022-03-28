@@ -11,7 +11,7 @@ class ShortLinkService implements ShortLinkContract
 {
 
     /**
-     * @var HashidsInterface
+     * @var Hashids
      */
     private $hashService;
 
@@ -40,6 +40,7 @@ class ShortLinkService implements ShortLinkContract
     public function generate(string $link): string
     {
         $id = DB::table('short_links')->max('id');
+
         $hash = $this->generateHash($id + 1);
 
         ShortLink::create([

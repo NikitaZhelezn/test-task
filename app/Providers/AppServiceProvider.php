@@ -19,7 +19,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         $this->app->singleton(ShortLinkContract::class, function ($app) {
-            return new ShortLinkService(new Hashids());
+            return new ShortLinkService(new Hashids('', 8));
         });
     }
 

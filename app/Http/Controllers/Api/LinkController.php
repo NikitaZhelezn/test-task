@@ -4,12 +4,13 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreLinkRequest;
-use App\Services\ShortLinkService;
+use App\Services\ShortLinkContract;
+
 
 class LinkController extends Controller
 {
     //
-    public function generate(StoreLinkRequest $request, ShortLinkService $linkService)
+    public function generate(StoreLinkRequest $request, ShortLinkContract $linkService)
     {
 
         try {
