@@ -28,8 +28,11 @@ class ShortLinkService implements ShortLinkContract
      */
     public function get(string $hash): string
     {
-        return Cache::get($hash, function() use ($hash){
-            return DB::table('short_links')->select('external_link')->where('hash', $hash)->first()->external_link;
+        return Cache::rememberForever($hash, function() use ($hash){
+            return DB::table('short_links')
+                    ->select('external_link')
+                    ->where('hash', $hash)
+                    ->first()->external_link ?? '';
         });
     }
 
