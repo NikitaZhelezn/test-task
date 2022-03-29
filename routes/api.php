@@ -20,3 +20,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/short-link/generate', [\App\Http\Controllers\Api\LinkController::class, 'generate'])->name('generate.short.link');
 Route::get('/users/{country}', [\App\Http\Controllers\Api\UserController::class, 'get']);
+Route::post('/upload-pdf', [\App\Http\Controllers\Api\FileController::class, 'uploadPdf']);
